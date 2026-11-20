@@ -1,0 +1,40 @@
+:root {
+  color-scheme: light;
+  --poppy: #d83d32;
+  --poppy-dark: #ba3127;
+  --butter: #ffe29b;
+  --pickle: #d5e4a3;
+  --espresso: #29201d;
+  --cream: #fcf6ec;
+  --paper: #fff;
+  --coffee: #6b5851;
+  --crust: #dfd0c2;
+
+  --background: var(--cream);
+  --foreground: var(--espresso);
+  --card: var(--paper);
+  --card-foreground: var(--espresso);
+  --popover: var(--paper);
+  --popover-foreground: var(--espresso);
+  --primary: var(--poppy);
+  --primary-foreground: var(--paper);
+  --primary-hover: var(--poppy-dark);
+  --secondary: var(--butter);
+  --secondary-foreground: var(--espresso);
+  --muted: #f3eadd;
+  --muted-foreground: var(--coffee);
+  --accent: var(--pickle);
+  --accent-foreground: var(--espresso);
+  --destructive: #a52626;
+  --border: var(--crust);
+  --input: var(--coffee);
+  --ring: var(--poppy);
+
+  --format-popup: var(--butter);
+  --format-placement: var(--pickle);
+  --format-prep: var(--muted);
+  --radius: 0.75rem;
+  --radius-card: 1.125rem;
+  --radius-pill: 999px;
+  --space-section: clamp(1.5rem, 4vw, 3.5rem);
+}

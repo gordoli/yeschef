@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "../theme/marketplace.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-format-popup: var(--format-popup);
+  --color-format-placement: var(--format-placement);
+  --color-format-prep: var(--format-prep);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 4px);
+  --radius-xl: var(--radius-card);
+}
+
+@layer base {
+  body {
+    @apply flex min-h-dvh flex-col bg-background font-sans text-foreground antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+  }
+
+  button:not(:disabled), select { cursor: pointer; }
+}
+
+@layer components {
+  .site-width {
+    width: min(100% - 3rem, 76rem);
+    margin-inline: auto;
+  }
+
+  .page-title {
+    @apply text-[clamp(2.25rem,5.4vw,4.35rem)] leading-[1.08] font-semibold tracking-[-0.075em];
+  }
+
+  .section-title {
+    @apply text-[clamp(1.35rem,3vw,1.65rem)] leading-tight font-semibold tracking-[-0.045em];
+  }
+
+  .panel {
+    @apply rounded-xl border border-border bg-card p-5 sm:p-6;
+  }
+
+  .control {
+    @apply h-11 w-full min-w-0 rounded-md border border-input bg-card px-3 text-base md:text-sm;
+  }
+
+  .checker {
+    --check: 11px;
+    background: conic-gradient(var(--poppy) 25%, transparent 0 50%, var(--poppy) 0 75%, transparent 0) 0 0 / calc(2 * var(--check)) calc(2 * var(--check));
+  }
+
+  .nav-link[aria-current="page"] {
+    color: var(--primary-hover);
+  }
+
+  .nav-link[aria-current="page"]::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 -1px;
+    border-bottom: 2px solid var(--poppy);
+  }
+
+  input[type="date"]::-webkit-date-and-time-value { text-align: left; }
+}
+
+@media (max-width: 639px) {
+  .site-width { width: calc(100% - 2rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
